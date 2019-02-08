@@ -303,8 +303,7 @@ func (c *counter) Displayable(val float64) string {
 	return strconv.FormatFloat(val, 'f', 1, 64)
 }
 
-/*
- * Counter values should be monotonically increasing.
+/* Get; Counter values should be monotonically increasing.
  * The value of a counter is actually the difference between two values.
  */
 func (c *counter) Get() float64 {

@@ -62,7 +62,7 @@ func SetLogLevel(level string) {
 	}
 }
 
-// Uh oh, not good but not worthy of process death
+// Warn; Uh oh, not good but not worthy of process death
 func Warn(msg string, args ...interface{}) {
 	if len(args) > 0 {
 		log.Printf(preamble('W')+msg+"\n", args...)
@@ -71,7 +71,7 @@ func Warn(msg string, args ...interface{}) {
 	}
 }
 
-// Typical logging output, the default level
+// Info; Typical logging output, the default level
 func Info(msg string, args ...interface{}) {
 	if LogInfo {
 		if len(args) > 0 {

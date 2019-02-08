@@ -108,8 +108,7 @@ type Controllable interface {
 	Reload() error
 }
 
-/*
-  Called for each service each cycle, in parallel.  This
+/* Collect; Called for each service each cycle, in parallel.  This
   method must be thread-safe.  Since this method executes
   in a goroutine, errors must be handled/logged here and
   not just returned.

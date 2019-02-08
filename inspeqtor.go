@@ -242,7 +242,7 @@ func (i *Inspeqtor) Shutdown() {
 	time.Sleep(time.Millisecond)
 }
 
-// this method never returns.
+// runLoop; never returns.
 //
 // since we can't test this method in an automated fashion, it should
 // contain as little logic as possible.

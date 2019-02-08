@@ -92,8 +92,7 @@ func (r *Rule) Reset() {
 	r.TrippedCount = 0
 }
 
-/*
- Run through all Rules and check if we need to trigger actions.
+/* Check; Run through all Rules and check if we need to trigger actions.
 
  "tripped" means the Rule threshold was breached **this cycle**.
  "triggered" means the Rule threshold was breached enough cycles in

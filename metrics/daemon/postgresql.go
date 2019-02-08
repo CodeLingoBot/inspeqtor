@@ -56,7 +56,7 @@ func (pg *pgSource) ValidMetrics() []metrics.Descriptor {
 	return pgMetrics
 }
 
-// Password must be specified via a ~/.pgpass file
+// buildArgs; Password must be specified via a ~/.pgpass file
 // http://www.postgresql.org/docs/current/static/libpq-pgpass.html
 func (pg *pgSource) buildArgs() []string {
 	args := []string{"-Xt"}

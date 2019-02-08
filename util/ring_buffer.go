@@ -16,8 +16,7 @@ type RingBuffer struct {
 	mu     sync.Mutex
 }
 
-/*
-  Return a RingBuffer with the given capacity.
+/* NewRingBuffer; Return a RingBuffer with the given capacity.
 */
 func NewRingBuffer(capacity int) *RingBuffer {
 	return &RingBuffer{
@@ -42,8 +41,7 @@ func (buf *RingBuffer) Add(elem float64) {
 	}
 }
 
-/*
-  Access the ring buffer based on previous elements added.
+/* At access the ring buffer based on previous elements added.
   0 is the latest item, -1 is the previous one added, etc.
   This means that At(1) will give you the oldest item.
   Returns nil if the slot in the buffer has not been filled

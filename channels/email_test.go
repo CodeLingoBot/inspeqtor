@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// Verify the email templates are packaged correctly in Pro
+// TestEmail checks a case when Verify the email templates are packaged correctly in Pro
 func TestEmail(t *testing.T) {
 	svc := inspeqtor.NewService("sidekiq")
 	action, err := inspeqtor.Notifiers["email"](svc, map[string]string{

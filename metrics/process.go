@@ -128,8 +128,7 @@ type processEntry struct {
 	rss  int64
 }
 
-/*
-  Collecting total RSS for a process is actually rather involved on Linux.
+/* totalRssCollector; Collecting total RSS for a process is actually rather involved on Linux.
 	Because of this, we only collect the value if the user defines a rule
 	for it.  This is a "dynamicCollector".
 */
@@ -197,7 +196,7 @@ func totalRssCollector(mypid int, ps *processStorage) error {
 	return nil
 }
 
-// recursively walk the array, looking for children, grandchildren, etc
+// memoryFor; recursively walk the array, looking for children, grandchildren, etc
 func memoryFor(procs []processEntry, curpid int) int64 {
 	var rss int64
 	for _, entry := range procs {
@@ -256,8 +255,7 @@ func (ps *processStorage) Collect(pid int) error {
 	return nil
 }
 
-/*
- * So many hacks in this.  OSX support can be seen as "bad" at best.
+/* capturePs; So many hacks in this.  OSX support can be seen as "bad" at best.
  */
 func (ps *processStorage) capturePs(pid int) error {
 	cmd := exec.Command("ps", "So", "rss,time,utime", "-p", strconv.Itoa(pid))

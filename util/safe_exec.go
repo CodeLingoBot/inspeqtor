@@ -16,8 +16,7 @@ var (
 	RestartTimeout = 10 * time.Second
 )
 
-/*
- Here's a lot of complexity to ensure that any child process
+/* SafeRun; Here's a lot of complexity to ensure that any child process
  we execute has a limited time to return.  Otherwise goroutines
  can leak and the main run loop stall due to shell commands
  which lock up for some reason.

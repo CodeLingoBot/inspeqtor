@@ -34,7 +34,7 @@ func TestNonexistentProcessCollect(t *testing.T) {
 	}
 }
 
-// doesn't have real CPU numbers
+// TestBasicProcess checks a case when doesn't have real CPU numbers
 func TestBasicProcess(t *testing.T) {
 	t.Parallel()
 	store := NewProcessStore("proc", 15)
@@ -61,7 +61,7 @@ func TestBasicProcess(t *testing.T) {
 	assert.Equal(t, 0.0, store.Get("cpu", "total_system"))
 }
 
-// has real stats, no children
+// TestMysqlProcess checks a case when has real stats, no children
 func TestMysqlProcess(t *testing.T) {
 	t.Parallel()
 	store := NewProcessStore("proc", 15)
@@ -87,7 +87,7 @@ func TestMysqlProcess(t *testing.T) {
 	assert.Equal(t, 0.0, store.Get("cpu", "total_system"))
 }
 
-// has real stats, child processes
+// TestApacheProcess checks a case when has real stats, child processes
 func TestApacheProcess(t *testing.T) {
 	t.Parallel()
 	store := NewProcessStore("proc", 15)
@@ -113,7 +113,7 @@ func TestApacheProcess(t *testing.T) {
 	assert.Equal(t, float64(100)/15, store.Get("cpu", "total_system"))
 }
 
-// verify our own process stats
+// TestRealProcess checks a case when verify our own process stats
 func TestRealProcess(t *testing.T) {
 	t.Parallel()
 	store := NewProcessStore("/etc/proc", 15)
@@ -130,7 +130,7 @@ func TestRealProcess(t *testing.T) {
 	assert.Equal(t, true, store.Get("memory", "rss") > 0)
 }
 
-// verify we can't capture a non-existent process for real
+// TestNonexistentProcess checks a case when verify we can't capture a non-existent process for real
 func TestNonexistentProcess(t *testing.T) {
 	t.Parallel()
 	store := NewProcessStore("/etc/proc", 15)

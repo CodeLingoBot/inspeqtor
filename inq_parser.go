@@ -14,8 +14,7 @@ import (
 	"github.com/mperham/inspeqtor/util"
 )
 
-/*
-Parses the host-specific rules in /etc/inspeqtor/host.inq
+/* ParseHost parses the host-specific rules in /etc/inspeqtor/host.inq
 */
 func ParseHost(global *ConfigFile, hostInq string) (*Host, error) {
 	var host *Host
@@ -55,8 +54,7 @@ func ParseHost(global *ConfigFile, hostInq string) (*Host, error) {
 	return host, nil
 }
 
-/*
-Parses the service-specific rules in /etc/inspeqtor/services.d/*.inq
+/* ParseServices; the service-specific rules in /etc/inspeqtor/services.d/*.inq
 */
 func ParseServices(global *ConfigFile, confDir string) ([]Checkable, error) {
 	util.Debug("Parsing config in " + confDir)
@@ -106,7 +104,7 @@ var (
 	BuildExpose  = convertExpose
 )
 
-// GACK, so ugly
+// convertHost; GACK, so ugly
 func convertHost(global *ConfigFile, inqhost *ast.HostCheck) (*Host, error) {
 	hostname, err := os.Hostname()
 	if err != nil {

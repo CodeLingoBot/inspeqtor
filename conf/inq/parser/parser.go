@@ -146,7 +146,7 @@ func (P *Parser) popNonRecoveryStates() (removedAttribs []parseError.ErrorSymbol
 	return
 }
 
-// recoveryState points to the highest state on the stack, which can recover
+// firstRecoveryState points to the highest state on the stack, which can recover
 func (P *Parser) firstRecoveryState() (recoveryState int, canRecover bool) {
 	recoveryState, canRecover = P.stack.topIndex(), actionTab[P.stack.top()].canRecover
 	for recoveryState > 0 && !canRecover {
